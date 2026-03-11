@@ -1,0 +1,15 @@
+package bit_manipulate;
+import java.util.Scanner;
+public class on_off_opp {
+	public static void main(String[]  args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter Input:");  // 5
+	int n = sc.nextInt();
+	System.out.println("Enter i value:"); // 3
+	int i = sc.nextInt();
+	
+	int bit_mask_off = (1<<i);
+	System.out.println("off_mask: "+(n ^ bit_mask_off)); // 13
+	sc.close();
+	}
+}
