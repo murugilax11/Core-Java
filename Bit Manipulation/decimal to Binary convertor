@@ -1,0 +1,21 @@
+package bit_manipulate;
+import java.util.Scanner;
+public class convertdecimalToBinary {
+	
+	static String convertDecimalToBinary(int dec) {
+		String s = " ";
+		while(dec > 0) {
+			int digit = dec%2;
+			dec /= 2;
+			s = digit+s;
+		}
+		return s;
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int number = sc.nextInt();
+		String binary = convertDecimalToBinary(number); 
+		System.out.println("Binary Value of "+ number +" : "+ binary );
+		sc.close();
+	}
+}
