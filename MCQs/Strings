@@ -1,0 +1,89 @@
+public class String {
+	public static void main(String[] args) {
+		  String s = "Java";
+          s.concat(" Programming");
+         System.out.println(s); 
+         // Java
+
+
+        String s1 = "Java";
+        String s2 = "Java";
+        System.out.println(s1 == s2);
+        // true
+        
+        
+        String s1 = new String("Java");
+        String s2 = new String("Java");
+        System.out.println(s1 == s2);
+        //false
+        
+        String s = "Java";
+        System.out.println(s.length()); 
+        // 4
+        
+        String s = "Java";
+        System.out.println(s.charAt(0)); 
+        // J
+        
+        String a = "Java";
+        String b = new String("Java");
+        System.out.println(a == b);      
+        // false
+        System.out.println(a.equals(b));  
+        // true
+        
+        String s = "Java";
+        System.out.println("java".toUpperCase()); 
+        // JAVA
+        
+        String s = "Programming";
+        System.out.println(s.substring(0, 4)); 
+        // Prog
+        
+        System.out.println("Java Programming".contains("Java")); 
+        // true
+        System.out.println("Java".replace('a','o')); 
+        // Jovo
+        
+        String s1 = "Ja" + "va";
+        String s2 = "Java";
+        System.out.println(s1 == s2);
+        // true
+        
+        
+        String s1 = "Ja";
+        String s2 = s1 + "va";
+        String s3 = "Java";
+        System.out.println(s2 == s3);
+        // false
+        
+        
+        String s1 = "Java";
+        String s2 = new String("Java").intern();
+        System.out.println(s1 == s2);
+        // true - heap ah scp la store pannum intern
+        
+        String s = null;
+        System.out.println(s.length());
+        // java.lang.NullPointerException
+        
+        String s1 = "Java";
+        String s2 = "JAva";
+        System.out.println(s1.equalsIgnoreCase(s2));
+        // true
+        
+        String s = "Java";
+        System.out.println(s.indexOf('a'));
+        // 1
+        
+        String s = "Java";
+        System.out.println(s.lastIndexOf('a'));
+        // 3
+        
+        String s1 = "Java";
+        String s2 = s1.toUpperCase();
+        System.out.println(s1 == s2);
+        // false
+	}
+}
+
