@@ -1,0 +1,16 @@
+package bit_manipulate;
+import java.util.Scanner;
+public class On_ith_bit {
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter number"); // 32
+	int number = sc.nextInt();
+	System.out.println("Enter i value");  // 3
+	int i = sc.nextInt();
+	
+	int bit_mask = 1 << i;
+	System.out.println("after bit masking : "+(number | bit_mask)); //40
+	
+	sc.close();
+}
+}
