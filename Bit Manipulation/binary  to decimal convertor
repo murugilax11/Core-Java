@@ -1,0 +1,28 @@
+package bit_manipulate;
+import java.util.Scanner;
+class B_to_D {
+
+    static int BinaryToDecimal(String binary) {
+        int decimal = 0;
+        int base = 1;
+
+        for (int i = binary.length() - 1; i >= 0; i--) {
+            char bit = binary.charAt(i);
+
+            if (bit == '1') {
+                decimal += base;
+            }
+
+            base = base * 2;
+        }
+        return decimal;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter binary:");
+        String bin = sc.nextLine();
+        int decimal = BinaryToDecimal(bin);
+        System.out.println("Decimal Value of " + bin + " : " + decimal);
+        sc.close();
+    }
+}
