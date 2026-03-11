@@ -1,0 +1,252 @@
+// 1. A B C D
+public class Test {
+ public static void main(String[] args) {
+ try {
+ System.out.print("A ");
+ int x = 10 / 0;
+ } catch (ArithmeticException e) {
+ System.out.print("B ");
+ } finally {
+ System.out.print("C ");
+ }
+ System.out.print("D ");
+ }
+ }
+
+
+// 2. 20
+public class Test {
+ static int method() {
+ try {
+ return 10;
+ } finally {
+ return 20;
+ }
+ }
+public static void main(String[] args) {
+  System.out.println(method());
+}
+}
+
+
+// 3. complilation failed
+try {
+ int a = 10;
+ } catch (Exception e) {
+ } catch (ArithmeticException e) {
+ }
+
+
+// 4. compilation failed
+try {
+ throw new Exception();
+ } catch (RuntimeException e) {
+ System.out.println("Runtime");
+ }
+
+
+// 5. A B
+public class Test {
+ public static void main(String[] args) {
+ try {
+ System.out.print("A ");
+  return;
+ } finally {
+ System.out.print("B ");
+ }
+ }
+ }
+
+// 6. A
+// Which statement is correct?
+// A) finally block will not execute if System.exit() is called
+//  B) finally always executes
+//  C) finally never executes if exception occurs
+//  D) finally executes only if exception occurs
+
+// 7. Exception only
+public class Test {
+ public static void main(String[] args) {
+ try {
+ System.out.println(1/0);
+ } finally {
+ System.out.println("Done");
+ }
+ }
+ }
+
+// 8. valid overriding
+class A {
+ void m() throws Exception {}
+ }
+ class B extends A {
+ void m() throws RuntimeException {}
+ }
+
+
+// 9. Identify correct statement: (answer - A)
+// A) Checked exceptions must be handled
+//  B) Runtime exceptions must be handled
+//  C) Errors must be handled
+//  D) All must be handled
+
+
+// 10. Caught
+public class Test {
+ public static void main(String[] args) {
+ try {
+ throw new RuntimeException();
+ } catch (Exception e) {
+ System.out.println("Caught");
+ }
+ }
+ }
+
+
+// 11. Compilation error
+public class Test {
+ static void test() throws Exception {
+ throw new Exception();
+ }
+public static void main(String[] args) {
+   test();
+}
+}
+
+
+// 12. error
+public class Test {
+public static void main(String[] args) {
+   try {
+ int[] arr = new int[5];
+ System.out.println(arr[10]);
+ } catch (ArrayIndexOutOfBoundsException e) {
+ System.out.println("Error");
+ }
+}
+}
+
+// 13. Which is unchecked?(answer - C)
+// A) IOException
+//  B) SQLException
+//  C) NullPointerException
+//  D) FileNotFoundException
+
+
+// 14.Compilation error-->ArinthmeticException
+public class Test {
+public static void main(String[] args) {
+   try {
+ throw new ArithmeticException();
+ } catch (Exception e) {
+ throw e;
+ }
+}
+}
+
+
+// 15. A B
+public class Test {
+ public static void main(String[] args) {
+ try {
+ int x = 10 / 0;
+ } catch (Exception e) {
+ System.out.print("A ");
+ } finally {
+ System.out.print("B ");
+ }
+ }
+ }
+
+
+// 16. What happens in try-with-resources if both try and close() throw exception?(answer - A)
+// A) close() exception is suppressed
+//  B) try exception suppressed
+//  C) Both lost
+//  D) Compilation error
+
+
+// 17. Can we have try without catch?(answer - C)
+// A) Yes
+//  B) No
+//  C) Only with finally
+//  D) Only with throws
+
+
+// 18. What is the parent of all exceptions?(answer - B)
+// A) Error
+//  B) Throwable
+//  C) RuntimeException
+//  D) Exception
+
+
+// 19. Nothing printed
+public class Test {
+ public static void main(String[] args) {
+try {
+ System.exit(0);
+ } finally {
+ System.out.println("Hello");
+ }
+ }
+ }
+
+
+// 20.Multiple catch rule:(answer - B)
+// A) Order doesn’t matter
+//  B) Child must come before parent
+//  C) Parent must come before child
+//  D) Only one catch allowed
+
+
+// 21. RuntimeException
+public class Test {
+ public static void main(String[] args) {
+ try {
+ throw new Error();
+ } catch (Exception e) {
+ System.out.println("Exception");
+ }
+ }
+ }
+
+
+// 22.What is true about custom checked exception?(answer - B)
+// A) Must extend RuntimeException
+//  B) Must extend Exception
+//  C) Must extend Error
+//  D) Cannot create
+
+
+// 23. finally
+public class Test {
+ public static void main(String[] args) {
+ try {
+ int x = 0;
+ } finally {
+ System.out.println("Finally");
+ }
+ }
+ }
+
+
+// 24.Which is correct about throw vs throws?(answer - A)
+A) throw declares
+ B) throws creates
+ C) throw creates
+ D) Both create
+
+
+//  25. runtime exception
+ public class Test {
+ public static void main(String[] args) {
+ try {
+ throw new NullPointerException();
+ } catch (ArithmeticException e) {
+ System.out.println("Arithmetic");
+ }
+ }
+ }
+
+
+
