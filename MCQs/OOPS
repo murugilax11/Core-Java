@@ -1,0 +1,198 @@
+//1. The constructor of A calls print() before B's fields are initialized, so x is 0.
+class A {
+   A() { print(); }
+   void print() { System.out.println("A"); }
+}
+class B extends A {
+   int x = 10;
+   void print() { System.out.println(x); }
+}
+public class mcq_oops {
+   public static void main(String[] args) {
+       new B();
+   }
+}
+
+
+//2. Compilation error
+//Explanation: Can't override static method with instance method.
+class A {
+   static void show() {}
+}
+class B extends A {
+   void show() {}
+}
+
+
+//3. Compilation error
+//Explanation: Must override show() in A to resolve conflict
+interface I1 { default void show() { System.out.println("I1"); } }
+interface I2 { default void show() { System.out.println("I2"); } }
+class A implements I1, I2 {}
+
+
+//4.  object
+//Explanation: Method resolution happens at compile-time based on reference type (A).
+class A { void show(Object o) { System.out.println("object"); } }
+class B extends A { void show(String s) { System.out.println("str"); } }
+public class mcq_oops {
+   public static void main(String[] args) {
+      A obj= new B();
+       obj.show("hello");
+   }
+}
+
+
+//5. 15
+//Explanation: Fields aren't overridden; a.x is 5, b.x is 10.
+class A { int x = 5; }
+class B extends A { int x = 10; }
+public class mcq_oops {
+   public static void main(String[] args) {
+       B b = new B();
+       A a = b;
+       System.out.println(a.x + b.x);
+   }
+}
+
+
+//6. no relation
+//Explanation: Private methods aren't inherited; B's show() isn't overriding A's.
+class A { private void show() {} }
+class B extends A { void show() {} }
+
+
+//7. AB
+//Every constructor in Java implicitly calls the superclass constructor first
+//        (i.e., super();) if you don’t explicitly call another constructor.
+abstract class A {
+A() { System.out.print("A "); }
+abstract void show();
+}
+class B extends A {
+B() { System.out.print("B "); }
+void show() {}
+}
+
+
+//8. A
+//Because static block of parent class executes first.
+class A {
+   static { System.out.print("A "); }
+   { System.out.print("InstanceA "); }
+}
+class B extends A {
+   static { System.out.print("B "); }
+   { System.out.print("InstanceB "); }
+}
+public class Test {
+   public static void main(String[] args) {
+       new B();
+   }
+}
+
+
+//9.  Varargs - overloaded
+//Compile-time resolution: the compiler looks at the reference type (A) and checks which methods exist.
+//Run-time: overridden methods in the actual object (B) are invoked only if they override a method.
+class A { void show(int... x) { System.out.println("Varargs"); } }
+class B extends A { void show(int x) { System.out.println("single"); } }
+A obj = new B(); obj.show(1);
+
+//10. A
+//Explanation: super.show() calls A's method.
+class A { void show() { System.out.println("A"); } }
+class B extends A { void show() { System.out.println("B"); } void test() { super.show(); } }
+new B().test();
+
+//11. Compilation error
+//Explanation: Can't override final method, and static vs instance mismatch.
+class A { final void show() {} }
+class B extends A { static void show() {} }
+
+
+//12. A B
+//Explanation: this(5) calls other B constructor; A's constructor runs implicitly.
+//If a constructor does not explicitly call super(), Java automatically inserts super() as the first statement.
+class A {
+   A() {
+       System.out.println("A");
+   }
+}
+class B extends A {
+   B() {
+       this(5);
+       System.out.println("B");
+   }
+
+   B(int x) {}
+}
+new B();
+
+
+//13. Bridge method:--> Created by JVM for generics polymorphism
+
+
+//14. Ensures runtime polymorphism: Type erasure
+class A<T> {
+   void show(T t) { System.out.println("generic"); }
+}
+class B extends A<String> {
+   void show(String s) { System.out.println("String"); }
+}
+
+
+//15. B
+//Explanation: Static methods are called based on reference type (B).
+class A {
+   static void show() {
+       System.out.println("A");
+   }
+}
+class B extends A {
+   static void show() {
+       System.out.println("B");
+   }
+}
+B b = null;
+b.show();
+
+
+//16. Number
+//Explanation: Method resolution based on compile-time type (A).
+class A { void show(Number n) { System.out.println("Number"); } }
+class B extends A { void show(Integer i) { System.out.println("Integer"); } }
+A obj = new B(); obj.show(1);
+
+
+//17
+//Superclass constructor throws checked exception: Subclass must handle or declare it
+
+//18
+//Can an abstract class have static methods? Yes
+
+//19
+//What happens if overridden method reduces visibility? Compilation error
+
+//20 C
+class A { void show() { System.out.print("A "); } }
+class B extends A { void show() { System.out.print("B "); } }
+class C extends B { void show() { System.out.print("C "); } }
+A obj = new C();
+obj.show();a
+
+
+//21
+//Can an interface have private methods? Yes (Java 8+)
+
+//22
+//If a class implements two interfaces with same abstract method: Must implement once
+
+//23
+//Field access is resolved at: Compile time
+
+//24
+//Method overloading resolution happens at: Compile time
+
+//25
+//True polymorphism in Java requires: Method overriding + Upcasting 
