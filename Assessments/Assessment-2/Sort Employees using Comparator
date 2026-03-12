@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+
+class Employee{
+    int ID;
+    String name;
+    int salary;
+
+Employee(int ID,String name,int salary) {
+    this.ID=ID;
+    this.name=name;
+    this.salary=salary;
+}
+}
+public class Comparator {
+    public static void main(String[] args) {
+        ArrayList<Employee> list = new ArrayList<>();
+        list.add(new Employee(102," Arjun", 60000));
+        list.add(new Employee(103," Karthik", 75000));
+        list.add(new Employee(101," Ravi", 90000));
+       list.sort((a,b)->b.salary- a.salary);
+
+       for (Employee e:list){
+           System.out.println(e.ID+" "+e.name+" "+e.salary);
+       }
+    }
+}
+
