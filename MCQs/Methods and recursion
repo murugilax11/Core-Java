@@ -1,0 +1,186 @@
+// 1. 10
+class Test {
+static void change(int x) {
+x = 50;
+}
+public static void main(String[] args) {
+int a = 10;
+change(a);
+System.out.println(a);
+}
+}
+
+
+// 2. 99
+class Test {
+static void change(int[] arr) {
+arr[0] = 99;
+}
+public static void main(String[] args) {
+int[] a = {10};
+change(a);
+System.out.println(a[0]);
+}
+}
+
+
+// 3. Which of the following is NOT valid method overloading?(answer B)
+// A) void sum(int a, int b)
+// void sum(int x, int y)
+// B) void sum(int a)
+// void sum(double a)
+// C) void sum(int a, double b)
+// void sum(double a, int b)
+// D) int sum(int a)
+// double sum(int a)
+
+
+// 4. 6
+class Test {
+static int fun(int n) {
+if(n == 0)
+return 1;
+return n * fun(n - 1);
+}
+public static void main(String[] args) {
+System.out.println(fun(3));
+}
+}
+
+
+// 5. Can the main method be overloaded?(answer B)
+// A) No
+// B) Yes
+// C) Only once
+// D) Only with int
+
+
+// 6. StackOverflowError
+class Test {
+static void display() {
+System.out.println("Hi");
+display();
+}
+public static void main(String[] args) {
+display();
+}
+}
+
+
+// 7. Which statement is true about static methods?(answer C)
+// A) Cannot call other static methods
+// B) Can access instance variables directly
+// C) Can be called without object
+// D) Must return a value
+
+
+// 8. 3
+class Test {
+static int fun(int n) {
+if(n <= 1)
+return n;
+return fun(n-1) + fun(n-2);
+}
+public static void main(String[] args) {
+System.out.println(fun(4));
+}
+}
+
+
+// 9. infiniy recursion of 3 print
+class Test {
+static void fun(int n) {
+if(n == 0)
+return;
+System.out.print(n + " ");
+fun(n--);
+}
+public static void main(String[] args) {
+fun(3);
+}
+}
+
+
+// 10. Which of the following can access instance variables directly?(answer C)
+// A) Static method
+// B) Constructor
+// C) Instance method
+// D) None
+
+
+// 11. 1 2 3
+static void fun(int n) {
+if(n == 0)
+return;
+fun(n-1);
+System.out.print(n + " ");
+}
+Call: fun(3);
+
+
+// 12. 5times run
+static void fun(int n) {
+if(n <= 1) return;
+fun(n/2);
+}
+Call: fun(16);
+
+
+// 13. 5
+static int fun(int n) {
+if(n == 1)
+return 1;
+return fun(n-1) + 1;
+}
+Call: fun(5);
+
+
+// 14. Recursion internally uses:(answer C)
+// A) Queue
+// B) Heap
+// C) Stack
+// D) LinkedList
+
+
+// 15. Time complexity of naive Fibonacci recursion is:(answer C)
+// A) O(n)
+// B) O(n²)
+// C) O(2^n)
+// D) O(log n)
+
+
+// 16. Tail recursion means:(answer B)
+// A) Recursive call at beginning
+// B) Recursive call at end
+// C) No base case
+// D) Multiple recursive calls
+
+
+// 17. 12
+static int fun(int n) {
+if(n == 0) return 0;
+return n + fun(n-2);
+}
+Call: fun(6);
+
+
+// 18. 8 4 2 1
+static void fun(int n) {
+if(n == 0)
+return;
+System.out.print(n + &quot; &quot;);
+fun(n/2);
+
+
+// 19. What is mandatory in recursion?(answer B)
+// A) Loop
+// B) Base condition
+// C) Constructor
+// D) Static keyword
+
+
+// 20. Maximum recursion depth depends on:(answer B)
+// A) Heap size
+// B) Stack size
+// C) CPU speed
+// D) OS type
