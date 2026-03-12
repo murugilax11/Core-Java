@@ -1,0 +1,55 @@
+public class mystack {
+    int top;
+    int capacity;
+    Object[] arr;
+    mystack(int capacity){
+        this.capacity = capacity;
+        arr =new Object[capacity];
+        top = -1;
+    }
+    void push(int data){
+        if(!isFull()){
+            arr[++top] = data;
+            return;
+        }
+        System.out.println("Stack overflow");
+    }
+    Object pop(){
+        if(!isEmpty()){
+            Object element = arr[top--];
+            return element;
+        }
+        System.out.println("stack empty");
+        return -1;
+    }
+    Object peek(){
+        if(!isEmpty()){
+            Object element = arr[top];
+            return element;
+        }
+        return -1;
+    }
+
+    boolean  isFull(){
+      return  top == capacity-1;
+    }
+    boolean isEmpty(){
+       return top == -1;
+
+    }
+    int size(){
+        return top+1;
+    }
+    public static void main(String[] args) {
+        mystack obj = new mystack(5);
+        obj.push(1);
+        obj.push(2);
+        obj.push(3);
+        System.out.println(obj.peek());
+        System.out.println(obj.size());
+        System.out.println(obj.pop());
+        System.out.println(obj.size());
+        System.out.println(obj.isEmpty());
+        System.out.println(obj.isFull());
+    }
+}
