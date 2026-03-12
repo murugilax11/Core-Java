@@ -1,0 +1,155 @@
+// 1. 22
+int a = 10;
+int b = a++ + ++a;
+System.out.println(b);
+
+//2. Compilation Error
+int x = 5;
+if(x = 0)
+System.out.println("Hi");
+else
+System.out.println("Hello");
+
+//3. ACBCB
+int i = 0;
+for(System.out.print("A"); i < 2; System.out.print("B")){
+System.out.print("C");
+i++;
+}
+
+//4. 43210
+int i = 5;
+while(i-- > 0){
+System.out.print(i);
+}
+
+//5. AB
+int x = 1;
+switch(x){
+case 1:
+System.out.print("A");
+case 2:
+System.out.print("B");
+break;
+default:
+System.out.print("C");
+}
+
+//6. 30Java1020
+System.out.println(10 + 20 + "Java" + 10 + 20);
+
+//7. No output
+int a = 0;
+if(a > 0)
+if(a < 5)
+System.out.print("X");
+else
+System.out.print("Y");
+
+//8. 6
+int count = 0;
+for(int i = 1; i <= 3; i++){
+for(int j = 1; j <= i; j++){
+count++;
+}
+}
+System.out.println(count);
+
+//9. 10
+static int fun(int n){
+if(n == 1)
+return 1;
+return n + fun(n - 1);
+}
+
+System.out.println(fun(4));
+
+//10. 4224
+static void fun(int n){
+if(n <= 0)
+return;
+System.out.print(n);
+fun(n - 2);
+System.out.print(n);
+}
+
+fun(4);
+
+//11. 6
+static int fun(int n){
+if(n == 0)
+return 0;
+return fun(n - 1) + n;
+}
+
+System.out.println(fun(3));
+
+//12. 20
+int x = 5;
+System.out.println(x > 2 ? x < 4 ? 10 : 20 : 30);
+
+//13. 1
+int i = 1;
+do{
+System.out.print(i);
+i++;
+}while(i < 1);
+
+//14. 1
+static int fun(int n){
+if(n == 0)
+return 1;
+return n * fun(n - 1);
+}
+
+System.out.println(fun(0));
+
+//15. 842
+static void fun(int n){
+if(n <= 1)
+return;
+System.out.print(n);
+fun(n / 2);
+}
+
+fun(8);
+
+//16. 10
+int[] a = {1,2,3}; 
+int[] b = a; 
+b[1] = 10;
+System.out.println(a[1]);
+
+//17. 79
+class Test {
+static void change(int[] arr) {
+arr[0] = 79;
+}
+public static void main(String[] args) {
+int[] a = {50};
+change(a);
+System.out.println(a[0]);
+}
+}
+
+//18. 1 2 3
+static void fun(int n) {
+if(n == 0)
+return;
+fun(n-1);
+System.out.print(n + " ");
+}
+
+fun(3);
+
+//19. Recursion internally uses:(answer C)
+A) Queue
+B) Heap
+C) Stack
+D) LinkedList
+
+//20. yes
+boolean b = false ;
+if (b = true){
+System.out.println("YES");
+}
