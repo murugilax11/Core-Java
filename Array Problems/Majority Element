@@ -1,0 +1,31 @@
+package array_problems;
+public class majority {
+	public static void main(String[] args) {
+		int nums[] = {2,2,1,1,1,2,2};
+	//	int nums[] = {1,2,3,4};
+		int element = nums[0];
+		int count =0;
+		for(int num:nums) {
+			if(count == 0) {
+				element = num;
+			}
+			if(element == num){
+				count++;
+			}else {
+				count--;
+			}
+		}
+		int num_count =0;
+         for(int num:nums) {
+        	 if(element == num) {
+        		 num_count++;
+        	 }
+         }
+         if(num_count > nums.length/2) {
+        	 System.out.println("majority "+element);
+         }else {
+          System.out.println(-1);    
+         }
+	}
+
+}
