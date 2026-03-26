@@ -1,0 +1,88 @@
+class Node1{
+    int data;
+    Node1 left;
+    Node1 right;
+    Node1(int data){
+        this.data = data;
+    }
+}
+
+public class BinarySearchTree {
+    Node1 root;
+    Node1 insert(Node1 root, int data){
+        if(root == null) return new Node1(data);
+        if(root.data > data){
+            root.left = insert(root.left,data);
+        }else{
+            root.right = insert(root.right,data);
+        }
+        return root;
+    }
+
+  static void inOrder(Node1 root){
+        if(root == null)return;
+        inOrder(root.left);
+        System.out.print(root.data+"-->");
+        inOrder(root.right);
+    }
+
+    Node1 delete(Node1 root, int key){
+        if(root == null) return null;
+        if(key <root.data){
+            root.left = delete(root.left,key);
+        }
+        else if(key > root.data){
+            root.right= delete(root.right,key);
+        }else{
+            if(root.left == null && root.right == null){
+                return null;
+            }
+            else if(root.right == null){
+                return root.left;
+            }else if(root.left == null){
+                return  root.right;
+            }
+            else{
+                Node1 temp = findmin(root.right);
+                root.data = temp.data;
+                root.right = delete(root.right,temp.data);
+            }
+        }
+        return root;
+    }
+
+   void  search(Node1 root, int key) {
+        if (root == null)
+            System.out.println(false);
+        if (key == root.data) {
+            System.out.println(true);
+        } else if (key < root.data) {
+            search(root.left, key);
+        } else if (key > root.data) {
+            search(root.right, key);
+        }
+  }
+
+    Node1 findmin(Node1 root){
+        while (root.left != null){
+            root = root.left;
+        }
+        return root;
+    }
+    public static void main(String[] args) {
+        BinarySearchTree bs = new BinarySearchTree();
+        int[] arr = {20, 15, 30, 25, 27, 45, 40, 65};
+        for (int val : arr) {
+            bs.root = bs.insert(bs.root, val);
+        }
+        bs.inOrder(bs.root);
+        bs.root =bs.delete(bs.root,30);
+        System.out.println();
+        bs.inOrder(bs.root);
+        System.out.println();
+
+        bs.search(bs.root,65);
+
+
+    }
+}
