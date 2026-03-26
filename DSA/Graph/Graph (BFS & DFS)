@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Graph{
+    ArrayList<ArrayList<Integer>> adjList;
+    int Vertax;
+    Graph(int Vertax){
+        this.Vertax = Vertax;
+        adjList = new ArrayList<>();
+        for (int i =0; i < Vertax;i++){
+            adjList.add(new ArrayList<>());
+        }
+    }
+
+    void bfsSortestPath(int src){
+        int[] dist = new int[Vertax];
+        Arrays.fill(dist,-1);
+        dist[src] = 0;
+        Queue<Integer> q = new LinkedList<>();
+        q.add(src);
+        while (!q.isEmpty()){
+            int n = q.poll();
+            for (int neig : adjList.get(n)){
+                if(dist[neig] == -1){
+                    dist[neig] = dist[n] +1;
+                }
+                q.add(neig);
+            }
+        }
+        System.out.println(Arrays.toString(dist));
+    }
+
+    void addEdge(int u, int v){
+        adjList.get(u).add(v);
+        adjList.get(v).add(u);
+    }
+
+    void  BFS(int start){
+        boolean[] visit =new boolean[Vertax];
+        Queue<Integer> q = new LinkedList<>();
+        visit[start] = true;
+        q.add(start);
+        while (!q.isEmpty()){
+            int ver = q.poll();
+            System.out.print(ver+ " ");
+            for (int neighbour : adjList.get(ver)){
+                if (!visit[neighbour]) {
+                    visit[neighbour] = true;
+                    q.add(neighbour);
+                }
+            }
+        }
+    }
+
+
+   void DFS(int start, boolean[] visit){
+            visit[start] = true;
+            System.out.print(start + "-->");
+       for (int neighbour : adjList.get(start)){
+           if (!visit[neighbour]) {
+               DFS(neighbour, visit);
+           }
+       }
+    }
+}
+
+public class GraphImplement {
+    public static void main(String[] args) {
+     Graph g =new Graph(8);
+     g.addEdge(0,1);
+        g.addEdge(0,2);
+        g.addEdge(0,3);
+        g.addEdge(1,4);
+        g.addEdge(2,5);
+        g.addEdge(3,6);
+        g.addEdge(4,7);
+        g.addEdge(5,7);
+        g.addEdge(6,7);
+
+        System.out.print(g.adjList);
+        g.BFS(0);
+        boolean[] vis = new boolean[g.Vertax];
+        System.out.println();
+        g.DFS(0,vis);
+
+        g.bfsSortestPath(1);
+    }
+}
