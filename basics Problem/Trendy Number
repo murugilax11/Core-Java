@@ -1,0 +1,18 @@
+package reviseJava;
+
+public class trendyNumber {
+	public static void main(String[] args) {
+		int num = 162;// trendy
+//		int num = 16;  not trendy
+		if(num >= 100 && num <= 999) {
+			num /= 10;
+			int mid = num % 10;
+			if(mid % 3 == 0) {
+			 System.out.print("trendy number");
+			}
+		}
+		else {
+			System.out.print("not trendy");
+		}
+	}
+}
