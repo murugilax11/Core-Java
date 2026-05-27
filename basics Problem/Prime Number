@@ -1,0 +1,27 @@
+package reviseJava;
+
+public class primeNumber {
+ static boolean isPrime(int num) {
+	 if(num<=1) {
+		 return false;
+	 }
+	 for(int i=2;i*i<=num;i++) {
+		 if(num % i == 0 ) {
+			 return false;
+		 }
+	 }
+	 return true;
+ }
+	public static void main(String[] args) {
+		int[] arr = {16,10,7,17,12,8,2,9};
+		int count =0;
+		for(int num:arr) {
+			if(isPrime(num)) {
+				count++;
+				System.out.println("prime Number:"+num);
+			}
+		}
+System.out.print("count:"+count);
+	}
+
+}
