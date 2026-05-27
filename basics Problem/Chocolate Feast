@@ -1,0 +1,16 @@
+package reviseJava;
+
+public class chocolateFeast {
+	public static void main(String[] args) {
+		int money = 15;
+		int cost =3;
+		int choco = money / cost;
+		int wr = choco;
+		while(wr >= 2) {
+			int extraChoco = wr/2;
+			choco += extraChoco;
+			wr = (wr %2 ) +extraChoco;
+		}
+    System.out.print(choco);
+	}
+}
