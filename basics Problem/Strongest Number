@@ -1,0 +1,27 @@
+package reviseJava;
+
+public class strongNumber {
+ static int strongest(int num) {
+	  int fact =1;
+	  for(int i =0; i<num;i++) {
+		  fact = fact*i;
+	  }
+	  return fact;
+  }
+	public static void main(String[] args) {
+		int number = 145;
+		int strong =0;
+		while(number > 0) {
+			int rem = number % 10;
+			strong += strongest(rem);
+			number /= 10;
+		}
+if(strong == number)
+ {
+	 System.out.print("strongest");
+ }else {
+	 System.out.print(" not strongest");
+ }
+	}
+
+}
