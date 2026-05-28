@@ -1,0 +1,21 @@
+package reviseJava;
+
+public class MajorityElement {
+	public static void main(String[] args) {
+		int[] arr = {1,1,2,2,3,1,2,4,2};
+		int count =0;
+		int element =0;
+		for(int num:arr) {
+			if(count ==0) {
+				element = num;
+			}else if(element == num) {
+				count++;
+			}
+			else {
+				count--;
+			}
+		}
+		System.out.print("majority number:"+element);
+	}
+
+}
