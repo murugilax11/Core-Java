@@ -1,0 +1,38 @@
+package reviseJava;
+import java.util.*;
+public class FirstNonReapeatChar {
+	public static void main(String[] args) {
+		String s ="swiss";
+//		for(int i=0; i<s.length();i++) {
+//			int count = 0;
+//			for(int j=0; j<s.length();j++) {
+//				if(s.charAt(i) == s.charAt(j)) {
+//					count++;
+//				}
+//			}
+//			if(count == 1) {
+//				System.out.print(s.charAt(i));
+//				break;
+//			}else {
+//				System.out.print("-1");
+//				break;
+//			}
+//		}
+		
+		HashMap<Character,Integer> map = new HashMap<>();
+		for(int i=0; i<s.length();i++) {
+			char ch = s.charAt(i);
+			map.put(ch,map.getOrDefault(ch,0) +1);
+		}
+		for(int i=0;i<s.length();i++) {
+			char ch = s.charAt(i);
+			if(map.get(ch) == 1) {
+				System.out.print(s.charAt(i));
+				break;
+			}else {
+				System.out.print("-1");
+				break;
+		}
+	}
+}
+}
