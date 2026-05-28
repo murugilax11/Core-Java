@@ -1,0 +1,18 @@
+package reviseJava;
+
+public class RemoveSpace {
+	public static void main(String[] args) {
+//		String s ="hello world";
+//			s=s.replace(" ", "");
+//		System.out.print(s);
+    
+		String s = "hello world";
+		StringBuilder ans = new StringBuilder();
+		for(int i=0; i<s.length();i++) {
+			if(s.charAt(i) != ' ') {
+				ans.append(s.charAt(i));
+			}
+		}
+		System.out.print(ans);
+	}
+}
