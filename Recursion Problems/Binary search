@@ -1,0 +1,20 @@
+package strings;
+
+public class BinarySearch {
+	static int binary(int[] arr, int left,int right,int target) {
+		if(left>right) {
+			return -1;
+		}
+		int mid = (left+right)/2;
+		if(arr[mid] == target) {
+			return mid;
+		}else if(target < arr[mid]) {
+			return binary(arr,left,mid-1,4);
+		}
+		return binary(arr,mid+1,right,4);
+	}
+public static void main(String[] args) {
+	int[] arr = {1,2,3,4,5,6};
+    System.out.print(binary(arr,0,arr.length-1,4));
+}
+}
