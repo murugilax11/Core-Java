@@ -1,0 +1,13 @@
+package collectionsproblems;
+
+import java.util.Arrays;
+import java.util.*;
+
+public class RotateListByK {
+	public static void main(String[] args) {
+		int k =3;
+     List<Integer> l = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+     Collections.rotate(l, k);
+     System.out.print(l);
+	}
+}
