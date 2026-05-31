@@ -1,0 +1,19 @@
+public class Set {
+public static void main(String[] args) {
+	HashSet<Integer> s1 = new HashSet<>(Arrays.asList(1,2,3,4));
+	HashSet<Integer> s2 = new HashSet<>(Arrays.asList(1,7,3,9));
+	HashSet<Integer> union = new HashSet<>();
+	for(int num:s1) {
+		union.add(num);
+	}
+	for(int num:s2) {
+		union.add(num);
+	}
+	// intersection
+	for(int num : s1) {
+	    if(s2.contains(num))
+	        System.out.print(num+" ");
+	}
+	System.out.print(union);
+}
+}
