@@ -1,0 +1,14 @@
+class Queue_{
+	public static void main(String[] args) {
+      Queue<String> q = new LinkedList<>();
+      q.offer("1");
+      int n = 5;
+
+for(int i=1;i<=n;i++){
+    String cur = q.poll();
+    System.out.println(cur);
+    q.offer(cur+"0");
+    q.offer(cur+"1");
+   }
+ }
+}
