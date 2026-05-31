@@ -1,0 +1,14 @@
+public class Set {
+public static void main(String[] args) {
+	List<Integer> l = new LinkedList<>(Arrays.asList(1,2,3,2,4,5,3,5));
+	HashMap<Integer,Integer> map = new HashMap<>();
+	for(int num:l) {
+		map.put(num,map.getOrDefault(num,0)+1);
+     }
+	for(int number:l) {
+		if(map.get(number) == 1) {
+			System.out.print(number);
+			break;
+		}
+	}
+}
