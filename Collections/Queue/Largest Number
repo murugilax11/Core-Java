@@ -1,0 +1,12 @@
+public class Queue_ {
+public static void main(String[] args) {
+	Queue<Integer> q = new LinkedList<>(Arrays.asList(20,19,30,45,23));
+	int max =Integer.MIN_VALUE;
+	for(int num:q) {
+		if(max<num) {
+			max = num;
+		}
+	}
+	System.out.print(max);
+}
+}
