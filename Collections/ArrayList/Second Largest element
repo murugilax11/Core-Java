@@ -1,0 +1,16 @@
+public class Set {
+public static void main(String[] args) {
+	List<Integer> l = new LinkedList<>(Arrays.asList(10,20,30,25,40));
+	int sec =Integer.MIN_VALUE;
+	int max =Integer.MIN_VALUE;
+	for(int num:l) {
+		if(max <num) {
+			sec= max;
+			max = num;
+		}else if(sec < num && num != max) {
+			sec = num;
+		}
+	}
+	System.out.print(sec);
+ }
+}
