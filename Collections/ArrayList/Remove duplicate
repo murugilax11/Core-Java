@@ -1,0 +1,17 @@
+public class Set {
+	public static void main(String[] args) {
+//     List<Integer> l = new ArrayList<>(Arrays.asList(1,2,3,2,1,4));
+//     List<Integer> ans = new ArrayList(new LinkedHashSet<>(l));
+//     System.out.print(ans);
+		
+		List<Integer> list = Arrays.asList(1,2,3,2,1,4);
+		List<Integer> ans = new ArrayList<>();
+		for(int num : list) {
+		        if(!ans.contains(num)) {
+		        	ans.add(num);
+		        }
+
+		}
+		System.out.println(ans);
+	}
+}
