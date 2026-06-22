@@ -1,0 +1,46 @@
+package collectionsproblems;
+
+public class Shopkeeper {
+   static boolean transaction(int arr[], int len) {
+	   int thirty =0;
+	   int sixty = 0;
+	   int onetwenty = 0;
+	   if(arr[0] > 30) return false;
+	   for(int i = 0; i<len;i++) {
+		   if(arr[i] == 30) {thirty++;}
+		   
+		   else if(arr[i] == 60) {
+			   if(thirty>0) {
+				   thirty--;
+				   sixty++;
+			   }else {
+				   return false;
+			   }
+		   }
+		   
+		   else {
+			   if(thirty > 0 && sixty > 0) {
+				   onetwenty++;
+				   thirty--;
+				   sixty--;
+			   }else if(thirty >= 3) {
+				   thirty = thirty-3;
+				   onetwenty++;
+			   }else {
+				   return false;
+			   }
+		   }
+	   }
+	   return true;
+	   
+   }
+	public static void main(String[] args) {
+		int arr[] = {30,60,30,60};
+		boolean flag = transaction(arr,arr.length);
+		if(flag) {
+			System.out.print("Successful transaction");
+		}else {
+			System.out.print("UnSuccessful transaction");
+		}
+	}
+}
