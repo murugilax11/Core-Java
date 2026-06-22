@@ -1,0 +1,19 @@
+package reviseJava;
+import java.util.*;
+public class badgeID {
+	public static void main(String args[]) {
+		int arr[] = {2,7,11,9};
+		int target = 9;
+		for(int i =0; i<arr.length;i++) {
+			int rem = target - arr[i];
+			for(int j=i+1;j<arr.length;j++) {
+			if(rem == arr[j]) {
+				System.out.println("{"+rem+","+arr[i]+"}");
+				System.out.println("yes");
+				return;
+			}
+			}
+		}
+		System.out.println("no");
+}
+}
