@@ -1,0 +1,33 @@
+package reviseJava;
+
+public class SumOfPrimeFactors {
+	public class Main {
+	    static boolean isPrime(int num) {
+	        if(num <= 1) {
+	            return false;
+	        }
+	        for(int i = 2; i * i <= num; i++) {
+	            if(num % i == 0) {
+	                return false;
+	            }
+	        }
+	        return true;
+	    }
+	    static int sumPrimeFactors(int num) {
+	        int sum = 0;
+	        for(int i = 2; i <= num; i++) {
+	            while(num % i == 0) {
+	                if(isPrime(i)) {
+	                    sum += i;
+	                }
+	                num /= i;
+	            }
+	        }
+	        return sum;
+	    }
+	    public static void main(String[] args) {
+	        int num = 60;
+	        System.out.println(sumPrimeFactors(num));
+	    }
+	}
+}
